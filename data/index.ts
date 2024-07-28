@@ -189,13 +189,16 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    href: "https://github.com/SuhailRazi",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    img: "/whatsapp.svg",
+    href: "https://wa.me/917034600709",
   },
   {
     id: 3,
     img: "/link.svg",
+    href: "www.linkedin.com/in/suhailrazi45",
   },
 ];
