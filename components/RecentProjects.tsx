@@ -1,16 +1,35 @@
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import { useEffect, useState } from "react";
 import { projects } from "@/data";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa6";
 
+interface Project {
+  id: number;
+  title: string;
+  des: string;
+  img: string;
+  iconLists: string[];
+  link: string;
+}
+
 const RecentProjects = () => {
+  // Ensure projects are stable during render
+  const [projectData, setProjectData] = useState<Project[]>([]);
+
+  useEffect(() => {
+    setProjectData(projects);
+  }, []);
+
   return (
     <div className="py-20" id="projects">
       <h1 className="heading">
-        A small selection of {""}{" "}
+        A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
-        {projects.map((project) => (
+        {projectData.map((project) => (
           <div
             key={project.id}
             className="lg:min-h-[32.5rem] sm:h-[41rem] h-[32rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
@@ -26,7 +45,7 @@ const RecentProjects = () => {
                   className="z-10 absolute bottom-0"
                 />
               </div>
-              <h1 className="font-bold lg::text-2xl md:text-xl text-base line-clamp-2">
+              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-2">
                 {project.title}
               </h1>
               <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
