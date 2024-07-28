@@ -158,7 +158,7 @@ export const companies = [
   },
   {
     id: 8,
-    name: "Docker.",
+    name: "Docker",
     img: "/dock.svg",
   },
   {
